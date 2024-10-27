@@ -1,5 +1,6 @@
 import express from 'express';
 import fs from 'node:fs';
+import heroValidator from '../heroValidator.js';
 import HeroCollection from '../data.js';
 
 function loadHeroes() {
@@ -10,10 +11,6 @@ function loadHeroes() {
 	} catch (err) {
 		console.error(err);
 	}
-}
-
-function isValidHero(hero) {
-	return hero && hero.id && hero.name;
 }
 
 export const app = express();
@@ -46,9 +43,9 @@ app.delete('/hero/:id', (req, res) => {
 });
 
 app.put('/hero', (req, res) => {
-	const hero = req.body;
+	const { value: hero, error } = heroValidator.validate(req.body);
 
-	if (!isValidHero(hero)) {
+	if (error) {
 		res.status(400).end('Malformed JSON input.');
 		return;
 	}
@@ -59,15 +56,15 @@ app.put('/hero', (req, res) => {
 });
 
 app.post('/hero', (req, res) => {
-	const hero = req.body;
+	const { value: hero, error } = heroValidator.validate(req.body);
 
-	if (!isValidHero(hero)) {
+	if (error) {
 		res.status(400).end('Malformed JSON input.');
 		return;
 	}
 
 	if (heroes.getById(hero.id)) {
-		res.status(409).end('A hero with this id already exists.');
+		res.status(409).end('A hero with the provided id already exists.');
 		return;
 	}
 
