@@ -15,6 +15,10 @@ function loadHeroes() {
 export const app = express();
 const heroes = loadHeroes();
 
+function isValidHero(hero) {
+	return hero && hero.id && hero.name;
+}
+
 app.use(express.json());
 
 app.get('/hero/:id', (req, res) => {
@@ -41,10 +45,23 @@ app.delete('/hero/:id', (req, res) => {
 	res.status(200).contentType('application/json').json(hero);
 });
 
+app.put('/hero', (req, res) => {
+	const hero = req.body;
+
+	if (!isValidHero(hero)) {
+		res.status(400).end('Malformed JSON input.');
+		return;
+	}
+
+	heroes.deleteById(hero.id);
+	heroes.create(hero);
+	res.status(201).contentType('application/json').json(hero);
+});
+
 app.post('/hero', (req, res) => {
 	const hero = req.body;
 
-	if (!hero || !hero.id || !hero.name) {
+	if (!isValidHero(hero)) {
 		res.status(400).end('Malformed JSON input.');
 		return;
 	}
