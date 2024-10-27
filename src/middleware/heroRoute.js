@@ -1,6 +1,6 @@
 import express from 'express';
 import fs from 'node:fs';
-import HeroCollection from './data.js';
+import HeroCollection from '../data.js';
 
 function loadHeroes() {
 	try {
