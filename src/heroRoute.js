@@ -49,8 +49,13 @@ app.post('/hero', (req, res) => {
 		return;
 	}
 
+	if (heroes.getById(hero.id)) {
+		res.status(409).end('A hero with this id already exists.');
+		return;
+	}
+
 	heroes.create(hero);
-	res.status(200).contentType('application/json').json(hero);
+	res.status(201).contentType('application/json').json(hero);
 });
 
 export default app;
