@@ -1,7 +1,7 @@
 import express from 'express';
 import fs from 'node:fs';
 import heroValidator from '../heroValidator.js';
-import HeroCollection from '../data.js';
+import HeroCollection from '../heroCollection.js';
 
 function loadHeroes() {
 	try {
