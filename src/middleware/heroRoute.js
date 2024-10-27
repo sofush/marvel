@@ -12,12 +12,12 @@ function loadHeroes() {
 	}
 }
 
-export const app = express();
-const heroes = loadHeroes();
-
 function isValidHero(hero) {
 	return hero && hero.id && hero.name;
 }
+
+export const app = express();
+const heroes = loadHeroes();
 
 app.use(express.json());
 
