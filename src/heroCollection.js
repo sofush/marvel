@@ -12,7 +12,7 @@ export default class HeroCollection {
 
 		if (idx >= 0) {
 			const removed = this.heroes.splice(idx, 1);
-			return removed;
+			return removed[0];
 		}
 
 		return null;
