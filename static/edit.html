@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Marvel</title>
+		<link href="static/css/style.css" rel="stylesheet">
+		<script defer type="module" src="static/edit.js"></script>
+	</head>
+	<body>
+		<h1>Edit Hero</h1>
+		<form id="form">
+			<label for="id">ID</label>
+			<input
+				id="idInput"
+				placeholder="ID"
+				readonly
+				/>
+			<small>You cannot change the ID of a hero.</small>
+
+			<label for="name">Name</label>
+			<input
+				id="nameInput"
+				placeholder="Name"
+				/>
+
+			<label for="alias">Alias</label>
+			<input
+				id="aliasInput"
+				placeholder="Alias"
+				/>
+
+			<label for="powers">Powers</label>
+			<input
+				id="powersInput"
+				placeholder="Powers"
+				/>
+
+			<input
+				type="submit"
+				value="Update hero"
+				/>
+		</form>
+	</body>
+</html>

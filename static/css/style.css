@@ -2964,4 +2964,8 @@ body {
   color: #333;
 }
 
+td a {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */

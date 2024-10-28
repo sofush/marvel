@@ -2,7 +2,6 @@ const createDeleteTd = (heroId, tableRow) => {
 	const td = document.createElement('td');
 	const a = document.createElement('a');
 
-	a.classList.add('delete');
 	a.innerHTML = 'Delete';
 	td.appendChild(a);
 
@@ -20,6 +19,20 @@ const createDeleteTd = (heroId, tableRow) => {
 	return td;
 };
 
+const createEditTd = (heroId) => {
+	const td = document.createElement('td');
+	const a = document.createElement('a');
+
+	a.innerHTML = 'Edit';
+	td.appendChild(a);
+
+	a.addEventListener('click', (_event) => {
+		window.location.href = `/edit?id=${heroId}`;
+	});
+
+	return td;
+};
+
 const addHeroToTable = (hero) => {
 	const idHtml = `<th scope="row">${hero.id}</th>`;
 	const nameHtml = `<td>${hero.name}</td>`;
@@ -29,6 +42,7 @@ const addHeroToTable = (hero) => {
 	const tableRow = document.createElement('tr');
 	tableRow.innerHTML = idHtml + nameHtml + aliasHtml + powersHtml;
 	tableRow.appendChild(createDeleteTd(hero.id, tableRow));
+	tableRow.appendChild(createEditTd(hero.id));
 
 	const tbody = document.getElementById('tbody');
 	tbody.appendChild(tableRow);
