@@ -1,9 +1,15 @@
+import fs from 'node:fs';
+
 export default class HeroCollection {
-	constructor(heroes) {
-		if (heroes)
+	constructor(path) {
+		try {
+			const heroes = fs.readFileSync('./data/heroes.json', 'utf-8');
+			console.log('Succesfully loaded heroes from JSON file.');
 			this.heroes = JSON.parse(heroes);
-		else
+		} catch (err) {
+			console.error(err);
 			this.heroes = [];
+		}
 	}
 
 	getById(id) {
