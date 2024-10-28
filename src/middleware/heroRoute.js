@@ -5,7 +5,7 @@ import HeroCollection from '../heroCollection.js';
 
 function loadHeroes() {
 	try {
-		const heroes = fs.readFileSync('./heroes.json', 'utf-8');
+		const heroes = fs.readFileSync('./data/heroes.json', 'utf-8');
 		console.log('Succesfully loaded heroes from JSON file.');
 		return new HeroCollection(heroes);
 	} catch (err) {
