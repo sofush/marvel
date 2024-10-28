@@ -1,12 +1,12 @@
 const createDeleteTd = (heroId, tableRow) => {
 	const td = document.createElement('td');
-	const div = document.createElement('a');
+	const a = document.createElement('a');
 
-	div.classList.add('delete');
-	div.innerHTML = 'Delete';
-	td.appendChild(div);
+	a.classList.add('delete');
+	a.innerHTML = 'Delete';
+	td.appendChild(a);
 
-	div.addEventListener('click', async (_event) => {
+	a.addEventListener('click', async (_event) => {
 		const header = await fetch(`/hero/${heroId}`, { method: 'DELETE' });
 
 		if (!header.ok) {
