@@ -32,6 +32,17 @@ export const readHero = (req, res) => {
 	res.json(hero);
 };
 
+export const readHeroes = (_req, res) => {
+	const heroArray = heroes.getAll();
+
+	if (!heroArray) {
+		res.status(404).end('No heroes found.');
+		return;
+	}
+
+	res.json(heroArray);
+};
+
 export const updateHero = (req, res) => {
 	const { value: hero, error } = heroValidator.validate(req.body);
 

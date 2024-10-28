@@ -8,8 +8,8 @@ const app = express();
 const port = 3000;
 
 app.use(morgan('combined'));
-app.use(siteRoute);
 app.use(heroRoute);
+app.use(siteRoute);
 app.use(errorHandler);
 
 app.listen(port, () => {

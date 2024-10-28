@@ -16,6 +16,10 @@ export default class HeroCollection {
 		return this.heroes.find(hero => hero.id == id);
 	}
 
+	getAll() {
+		return this.heroes;
+	}
+
 	deleteById(id) {
 		const idx = this.heroes.findIndex(hero => hero.id == id);
 
