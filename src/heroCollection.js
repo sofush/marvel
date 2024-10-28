@@ -1,6 +1,9 @@
 export default class HeroCollection {
 	constructor(heroes) {
-		this.heroes = JSON.parse(heroes);
+		if (heroes)
+			this.heroes = JSON.parse(heroes);
+		else
+			this.heroes = [];
 	}
 
 	getById(id) {

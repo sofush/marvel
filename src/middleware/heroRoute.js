@@ -11,6 +11,8 @@ function loadHeroes() {
 	} catch (err) {
 		console.error(err);
 	}
+	
+	return new HeroCollection();
 }
 
 export const app = express();
