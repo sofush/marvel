@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 export default class HeroCollection {
-	constructor(path) {
+	constructor() {
 		try {
 			const heroes = fs.readFileSync('./data/heroes.json', 'utf-8');
 			console.log('Succesfully loaded heroes from JSON file.');

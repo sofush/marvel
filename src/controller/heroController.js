@@ -1,7 +1,7 @@
 import heroValidator from '../heroValidator.js';
 import HeroCollection from '../heroCollection.js';
 
-const heroes = new HeroCollection('../data/heroes.json');
+const heroes = new HeroCollection();
 
 export const createHero = (req, res) => {
 	const { value: hero, error } = heroValidator.validate(req.body);
