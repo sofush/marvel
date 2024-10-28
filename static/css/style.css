@@ -2959,6 +2959,7 @@ textarea,
   }
 }
 body {
+  padding: 30px;
   font: 100% Helvetica, sans-serif;
   color: #333;
 }
