@@ -66,7 +66,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Hero'
         '404':
-          description: No hero with the provided ID was found
+          description: No hero was found with the provided ID
   /hero:
     post:
       tags:
@@ -101,7 +101,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Hero'
         '404':
-          description: No hero with the provided ID was found
+          description: No hero was found with the provided ID
 components:
   schemas:
     Hero:
