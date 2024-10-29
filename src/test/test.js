@@ -29,7 +29,7 @@ test('DELETE /hero/1', async () => {
 });
 
 test('PUT /hero/1', async () => {
-    const hero = {
+    const testHero = {
       id: 1,
       name: 'Test Hero',
       alias: 'Test Hero Alias',
@@ -41,7 +41,7 @@ test('PUT /hero/1', async () => {
 
     const heroReq = await fetch('http://localhost:3000/hero', {
       method: 'PUT',
-      body: JSON.stringify(hero),
+      body: JSON.stringify(testHero),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -50,7 +50,7 @@ test('PUT /hero/1', async () => {
     expect(heroReq.ok).toBeTruthy();
 
     const response = await heroReq.json();
-    expect(response).toEqual(hero);
+    expect(response).toEqual(testHero);
 });
 
 test('POST /hero/1', async () => {
