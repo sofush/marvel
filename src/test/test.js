@@ -1,14 +1,20 @@
+const captainAmerica = {
+  'id': 1,
+  'name': 'Captain America',
+  'alias': 'Steve Rogers',
+  'powers': [
+    'Super strength',
+    'Enhanced agility',
+    'Vibranium shield'
+  ],
+};
+
 test('GET /hero/1', async () => {
     const hero = await fetch('http://localhost:3000/hero/1');
     expect(hero.ok).toBeTruthy();
 
     const response = await hero.json();
-    expect(response).toEqual({
-      'id': 1,
-      'name': 'Captain America',
-      'alias': 'Steve Rogers',
-      'powers': [ 'Super strength', 'Enhanced agility', 'Vibranium shield' ],
-    });
+    expect(response).toEqual(captainAmerica) ;
 });
 
 test('DELETE /hero/1', async () => {
@@ -16,12 +22,7 @@ test('DELETE /hero/1', async () => {
     expect(hero.ok).toBeTruthy();
 
     const response = await hero.json();
-    expect(response).toEqual({
-      'id': 1,
-      'name': 'Captain America',
-      'alias': 'Steve Rogers',
-      'powers': [ 'Super strength', 'Enhanced agility', 'Vibranium shield' ],
-    });
+    expect(response).toEqual(captainAmerica);
     
     const nothing = await fetch('http://localhost:3000/hero/1');
     expect(nothing.ok).toBeFalsy();
